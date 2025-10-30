@@ -1,0 +1,44 @@
+[project]
+name = "bees-and-bears"
+version = "1.0.0"
+description = "Technical test project for Bees&Bears"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "bcrypt>=5.0.0",
+    "black>=25.9.0",
+    "deptry>=0.23.1",
+    "fastapi[standard]>=0.120.2",
+    "isort>=7.0.0",
+    "jwt>=1.4.0",
+    "pydantic>=2.12.3",
+    "pyjwt>=2.10.1",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "python-dotenv>=1.2.1",
+    "sqlmodel>=0.0.27",
+    "uvicorn[standard]>=0.38.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "."
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py313"]
+
+[tool.isort]
+profile = "black"
+
+[dependency-groups]
+dev = [
+    "deptry>=0.23.1",
+]
+
+[tool.deptry]
+ignore = ["DEP002", "DEP003"]
+
+[tool.deptry.per_rule_ignores]
+DEP002 = ["black", "isort", "pytest", "pytest-cov", "deptry", "uvicorn"]

@@ -4,7 +4,7 @@ from fastapi import FastAPI
 
 from app.core.exception_handlers import register_exception_handlers
 
-from .api import auth
+from .api import auth, customer
 from .database.database import init_db
 
 
@@ -24,4 +24,5 @@ app = FastAPI(
 register_exception_handlers(app)
 
 app.include_router(auth.router)
-
+app.include_router(customer.customers_router)
+app.include_router(customer.loanoffers_router)

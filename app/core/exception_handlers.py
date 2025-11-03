@@ -2,9 +2,11 @@ from fastapi import Request
 from fastapi.responses import JSONResponse
 
 from app.services.auth import InvalidCredentialsError, UsernameAlreadyTakenError
-
+from app.services.customer import CustomerNotFoundError, LoanOfferNotFoundError
 
 EXCEPTION_STATUS_CODE_MAP = {
+    CustomerNotFoundError: 404,
+    LoanOfferNotFoundError: 404,
     UsernameAlreadyTakenError: 409,
     InvalidCredentialsError: 401,
 }
